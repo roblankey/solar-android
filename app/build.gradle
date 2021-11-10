@@ -57,10 +57,6 @@ dependencies {
 }
 
 ktlint {
-    debug = true
-    verbose = true
-    reporters {
-        reporter "checkstyle"
-        reporter "plain"
-    }
+    android = true
+    outputColorName = "RED"
 }
