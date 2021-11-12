@@ -2,9 +2,9 @@ package com.rm.androidoreo.repositories
 
 import com.rm.androidoreo.R
 import com.rm.androidoreo.solar.Planet
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import javax.inject.Inject
 
 interface Repository<T> {
     fun get(id: Int): Flow<T?>
