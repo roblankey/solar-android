@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/planet_list_fragment">
+
+    <fragment
+        android:id="@+id/planet_list_fragment"
+        android:name="com.rm.androidoreo.solar.views.fragments.PlanetListFragment"
+        tools:layout="@layout/fragment_planet_list">
+    </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_planet_detail"-->
+<!--        android:name="com.rm.androidoreo.solar.views.fragments.PlanetDetailFragment"-->
+<!--        tools:layout="@layout/fragment_planet_detail">-->
+<!--    </fragment>-->
+</navigation>
