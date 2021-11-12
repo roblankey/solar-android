@@ -1,9 +1,12 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
-apply plugin: 'androidx.navigation.safeargs.kotlin'
-apply plugin: 'org.jlleitschuh.gradle.ktlint'
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "dagger.hilt.android.plugin"
+    id "androidx.navigation.safeargs.kotlin"
+    id "jacoco"
+    id "org.jlleitschuh.gradle.ktlint" version "$ktlintGradleVersion"
+}
 
 android {
     compileSdk rootProject.compileSdkVersion
@@ -19,25 +22,13 @@ android {
     }
 
     buildTypes {
-        debug {
-            minifyEnabled false
-            testCoverageEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            testProguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            testProguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    // Always show the result of every unit test, even if it passes.
     testOptions.unitTests {
-        includeAndroidResources = true
-
         all {
             testLogging {
                 events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
@@ -64,6 +55,9 @@ android {
     }
 }
 
+apply from: './jacoco.gradle'
+apply from: './ktlint.gradle'
+
 kapt {
     arguments {
         // Make Hilt share the same definition of Components in tests instead of
@@ -85,6 +79,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
     implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 
     // Architecture Components
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
@@ -126,9 +121,4 @@ dependencies {
 
     // Kotlin
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
-}
-
-ktlint {
-    android = true
-    outputColorName = "RED"
 }

@@ -1,0 +1,4 @@
+ktlint {
+    android = true
+    outputColorName = "RED"
+}
