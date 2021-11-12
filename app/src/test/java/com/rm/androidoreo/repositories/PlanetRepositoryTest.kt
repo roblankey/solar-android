@@ -2,10 +2,8 @@ package com.rm.androidoreo.repositories
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
+import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.runBlocking
-import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldNotBeEmpty
-import org.amshove.kluent.shouldNotBeNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -25,7 +23,9 @@ class PlanetRepositoryTest {
     fun `repository should return milky way planets`() {
         runBlocking {
             repository.getAll().test {
-                awaitItem().shouldNotBeNull().shouldNotBeEmpty()
+                val result = awaitItem()
+                assertThat(result).isNotNull()
+                assertThat(result).isNotEmpty()
                 awaitComplete()
             }
         }
@@ -36,10 +36,9 @@ class PlanetRepositoryTest {
         runBlocking {
             repository.get(9).test {
                 val result = awaitItem()
-                result.shouldNotBeNull()
-                result.id.shouldBeEqualTo(9)
-                result.name.shouldBeEqualTo("Pluto")
-
+                assertThat(result).isNotNull()
+                assertThat(result?.id).isEqualTo(9)
+                assertThat(result?.name).isEqualTo("Pluto")
                 awaitComplete()
             }
         }

@@ -2,6 +2,7 @@ package com.rm.androidoreo.solar.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
+import com.google.common.truth.Truth.assertThat
 import com.rm.androidoreo.MainCoroutineRule
 import com.rm.androidoreo.getOrAwaitValue
 import com.rm.androidoreo.repositories.PlanetRepository
@@ -10,9 +11,6 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
-import org.amshove.kluent.shouldBeEquivalentTo
-import org.amshove.kluent.shouldBeNull
-import org.amshove.kluent.shouldNotBeNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -48,7 +46,8 @@ class PlanetDetailViewModelTest {
         val result = viewModel.planet.getOrAwaitValue()
 
         // t
-        result.shouldNotBeNull().shouldBeEquivalentTo(planet)
+        assertThat(result).isNotNull()
+        assertThat(result).isEqualTo(planet)
     }
 
     @Test
@@ -65,6 +64,6 @@ class PlanetDetailViewModelTest {
         val result = viewModel.planet.getOrAwaitValue()
 
         // t
-        result.shouldBeNull()
+        assertThat(result).isNull()
     }
 }

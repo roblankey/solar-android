@@ -1,6 +1,7 @@
 package com.rm.androidoreo.solar.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.google.common.truth.Truth.assertThat
 import com.rm.androidoreo.MainCoroutineRule
 import com.rm.androidoreo.getOrAwaitValue
 import com.rm.androidoreo.repositories.PlanetRepository
@@ -9,9 +10,6 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
-import org.amshove.kluent.shouldContainAll
-import org.amshove.kluent.shouldNotBeEmpty
-import org.amshove.kluent.shouldNotBeNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -46,6 +44,8 @@ class PlanetListViewModelTest {
         val results = viewModel.planets.getOrAwaitValue()
 
         // t
-        results.shouldNotBeNull().shouldNotBeEmpty().shouldContainAll(expected)
+        assertThat(results).isNotNull()
+        assertThat(results).isNotEmpty()
+        assertThat(results).containsExactlyElementsIn(expected)
     }
 }
