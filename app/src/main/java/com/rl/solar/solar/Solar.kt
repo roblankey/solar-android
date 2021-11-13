@@ -1,4 +1,4 @@
-package com.rl.solar.solar
+package com.rl.solar
 
 // e.g. Europa
 data class Moon(
