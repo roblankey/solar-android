@@ -1,12 +1,12 @@
-package com.rm.androidoreo.solar.views.adapters
+package com.rl.solar.views.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.rm.androidoreo.databinding.ListItemPlanetBinding
-import com.rm.androidoreo.solar.Planet
+import com.rl.solar.databinding.ListItemPlanetBinding
+import com.rl.solar.Planet
 import javax.inject.Inject
 
 class PlanetAdapter @Inject constructor() : ListAdapter<Planet, RecyclerView.ViewHolder>(

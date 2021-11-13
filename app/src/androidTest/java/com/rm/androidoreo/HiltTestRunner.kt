@@ -1,4 +1,4 @@
-package com.rm.androidoreo
+package com.rl.solar
 
 import android.app.Application
 import android.content.Context

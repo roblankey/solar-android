@@ -1,4 +1,4 @@
-package com.rm.androidoreo.solar.views.fragments
+package com.rl.solar.views.fragments
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
@@ -6,8 +6,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.filters.SmallTest
-import com.rm.androidoreo.core.SolarModule
-import com.rm.androidoreo.launchFragmentInHiltContainer
+import com.rl.solar.core.SolarModule
+import com.rl.solar.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules

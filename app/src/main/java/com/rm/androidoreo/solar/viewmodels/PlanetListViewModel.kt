@@ -1,10 +1,10 @@
-package com.rm.androidoreo.solar.viewmodels
+package com.rl.solar.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.rm.androidoreo.repositories.Repository
-import com.rm.androidoreo.solar.Planet
+import com.rl.solar.repositories.Repository
+import com.rl.solar.Planet
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

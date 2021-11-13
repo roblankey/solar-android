@@ -1,4 +1,4 @@
-package com.rm.androidoreo
+package com.rl.solar
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData

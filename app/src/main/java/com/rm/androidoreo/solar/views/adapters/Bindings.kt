@@ -1,4 +1,4 @@
-package com.rm.androidoreo.solar.views.adapters
+package com.rl.solar.views.adapters
 
 import android.view.View
 import android.widget.ImageView

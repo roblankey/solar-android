@@ -1,4 +1,4 @@
-package com.rm.androidoreo.solar
+package com.rl.solar.solar
 
 // e.g. Europa
 data class Moon(

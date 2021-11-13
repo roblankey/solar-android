@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/planet_list_fragment"
-        android:name="com.rm.androidoreo.solar.views.fragments.PlanetListFragment"
+        android:name="com.rl.solar.views.fragments.PlanetListFragment"
         tools:layout="@layout/fragment_planet_list">
     </fragment>
 
 <!--    <fragment-->
 <!--        android:id="@+id/nav_planet_detail"-->
-<!--        android:name="com.rm.androidoreo.solar.views.fragments.PlanetDetailFragment"-->
+<!--        android:name="com.rl.solar.views.fragments.PlanetDetailFragment"-->
 <!--        tools:layout="@layout/fragment_planet_detail">-->
 <!--    </fragment>-->
 </navigation>

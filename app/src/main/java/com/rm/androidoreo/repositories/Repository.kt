@@ -1,7 +1,7 @@
-package com.rm.androidoreo.repositories
+package com.rl.solar.repositories
 
-import com.rm.androidoreo.R
-import com.rm.androidoreo.solar.Planet
+import com.rl.solar.R
+import com.rl.solar.Planet
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

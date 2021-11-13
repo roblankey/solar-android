@@ -1,4 +1,4 @@
-package com.rm.androidoreo.repositories
+package com.rl.solar.repositories
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test

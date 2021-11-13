@@ -10,13 +10,13 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.rm.androidoreo"
+        applicationId "com.rl.solar"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.rm.androidoreo.HiltTestRunner"
+        testInstrumentationRunner "com.rl.solar.HiltTestRunner"
         proguardFiles
     }
 

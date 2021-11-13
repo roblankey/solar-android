@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android Oreo</string>
+    <string name="app_name">Solar Android</string>
 
     <!-- Accessibility -->
     <string name="a11y_planet_item_image">Picture of planet</string>

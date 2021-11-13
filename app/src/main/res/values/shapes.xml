@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ShapeAppearance.AndroidOreo.Card" parent="ShapeAppearance.MaterialComponents">
+    <style name="ShapeAppearance.SolarAndroid.Card" parent="ShapeAppearance.MaterialComponents">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeTopRight">@dimen/card_corner_radius</item>

@@ -1,12 +1,12 @@
-package com.rm.androidoreo.solar.viewmodels
+package com.rl.solar.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.SavedStateHandle
 import com.google.common.truth.Truth.assertThat
-import com.rm.androidoreo.MainCoroutineRule
-import com.rm.androidoreo.getOrAwaitValue
-import com.rm.androidoreo.repositories.PlanetRepository
-import com.rm.androidoreo.solar.Planet
+import com.rl.solar.MainCoroutineRule
+import com.rl.solar.getOrAwaitValue
+import com.rl.solar.repositories.PlanetRepository
+import com.rl.solar.Planet
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi

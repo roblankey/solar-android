@@ -1,9 +1,9 @@
-package com.rm.androidoreo.core
+package com.rl.solar.core
 
 import android.app.Application
-import com.rm.androidoreo.repositories.PlanetRepository
-import com.rm.androidoreo.repositories.Repository
-import com.rm.androidoreo.solar.Planet
+import com.rl.solar.repositories.PlanetRepository
+import com.rl.solar.repositories.Repository
+import com.rl.solar.Planet
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

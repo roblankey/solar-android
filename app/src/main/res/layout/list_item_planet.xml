@@ -9,7 +9,7 @@
             type="android.view.View.OnClickListener"/>
         <variable
             name="planet"
-            type="com.rm.androidoreo.solar.Planet"/>
+            type="com.rl.solar.Planet"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView

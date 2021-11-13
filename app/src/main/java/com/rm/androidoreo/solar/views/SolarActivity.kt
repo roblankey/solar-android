@@ -1,8 +1,8 @@
-package com.rm.androidoreo.solar.views
+package com.rl.solar.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.rm.androidoreo.databinding.ActivitySolarBinding
+import com.rl.solar.databinding.ActivitySolarBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
