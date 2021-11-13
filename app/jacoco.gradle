@@ -11,7 +11,7 @@
 android {
     buildTypes {
         debug {
-            testCoverageEnabled true
+//            testCoverageEnabled true
         }
     }
 }
