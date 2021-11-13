@@ -1,7 +1,7 @@
 package com.rl.solar
 
 import com.rl.solar.repositories.Repository
-import com.rl.solar.Planet
+import com.rl.solar.core.Planet
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

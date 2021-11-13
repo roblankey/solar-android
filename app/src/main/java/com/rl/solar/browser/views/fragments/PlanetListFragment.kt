@@ -1,4 +1,4 @@
-package com.rl.solar.views.fragments
+package com.rl.solar.browser.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.rl.solar.databinding.FragmentPlanetListBinding
-import com.rl.solar.viewmodels.PlanetListViewModel
-import com.rl.solar.views.adapters.PlanetAdapter
+import com.rl.solar.browser.viewmodels.PlanetListViewModel
+import com.rl.solar.browser.views.adapters.PlanetAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

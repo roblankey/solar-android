@@ -1,4 +1,4 @@
-package com.rl.solar.views.adapters
+package com.rl.solar.browser.views.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rl.solar.databinding.ListItemPlanetBinding
-import com.rl.solar.Planet
+import com.rl.solar.core.Planet
 import javax.inject.Inject
 
 class PlanetAdapter @Inject constructor() : ListAdapter<Planet, RecyclerView.ViewHolder>(

@@ -1,11 +1,11 @@
-package com.rl.solar.viewmodels
+package com.rl.solar.browser.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.rl.solar.repositories.Repository
-import com.rl.solar.Planet
+import com.rl.solar.core.Planet
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

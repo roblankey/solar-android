@@ -6,6 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.filters.SmallTest
+import com.rl.solar.browser.views.fragments.PlanetListFragment
 import com.rl.solar.core.SolarModule
 import com.rl.solar.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule

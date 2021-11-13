@@ -1,4 +1,4 @@
-package com.rl.solar.views
+package com.rl.solar.browser.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

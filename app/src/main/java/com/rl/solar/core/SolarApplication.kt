@@ -3,7 +3,6 @@ package com.rl.solar.core
 import android.app.Application
 import com.rl.solar.repositories.PlanetRepository
 import com.rl.solar.repositories.Repository
-import com.rl.solar.Planet
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
