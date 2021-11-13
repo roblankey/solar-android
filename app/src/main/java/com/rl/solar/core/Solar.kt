@@ -10,8 +10,7 @@ data class Moon(
 data class Planet(
     val id: Int,
     val name: String,
-    val image: Int? = null,
-    val moons: List<Moon> = emptyList()
+    val image: Int? = null
 )
 
 // e.g. Solar

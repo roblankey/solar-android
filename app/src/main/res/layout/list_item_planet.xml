@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="clickListener"
-            type="android.view.View.OnClickListener"/>
-        <variable
-            name="planet"
-            type="com.rl.solar.core.Planet"/>
+        <variable name="clickListener" type="android.view.View.OnClickListener"/>
+        <variable name="planet" type="com.rl.solar.core.Planet"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
