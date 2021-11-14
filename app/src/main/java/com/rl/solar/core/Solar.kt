@@ -1,29 +1,38 @@
 package com.rl.solar.core
 
-// e.g. Europa
+import androidx.room.*
+
+@Entity(
+    tableName = "moons",
+    foreignKeys = [
+        ForeignKey(entity = Planet::class, parentColumns = ["id"], childColumns = ["planet_id"],
+            onDelete = 2)
+    ],
+    indices = [Index("planet_id")]
+)
 data class Moon(
-    val id: Int,
-    val name: String
-)
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val name: String,
+    @ColumnInfo(name = "planet_id") val planetId: Long
+) {
+    @ColumnInfo(name = "distance_from_planet") var distanceFromPlanet: Long? = null
+}
 
-// e.g. Jupiter
+@Entity(tableName = "planets")
 data class Planet(
-    val id: Int,
-    val name: String,
-    val image: Int? = null,
-    val moons: List<Moon> = emptyList()
-)
+    @PrimaryKey(autoGenerate = true) val id: Long,
+    val name: String
+) {
+    // resource id of planet svg
+    @Ignore var image: Int? = null
+    var stub: String? = null
 
-// e.g. Solar
-data class SolarSystem(
-    val id: Int,
-    val name: String,
-    val planets: List<Planet> = emptyList()
-)
+    // orbital characteristics
+    var aphelion: Float? = null
+    var perihelion: Float? = null
+    @ColumnInfo(name = "orbital_period") var orbitalPeriod: Float? = null
 
-// e.g. Milky Way
-data class Galaxy(
-    val id: Int,
-    val name: String,
-    val systems: List<SolarSystem> = emptyList()
-)
+    // physical characteristics
+    @ColumnInfo(name = "mean_radius") var meanRadius: Long? = null
+    var mass: Long? = null
+}

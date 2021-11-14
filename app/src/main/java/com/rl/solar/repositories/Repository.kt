@@ -2,34 +2,33 @@ package com.rl.solar.repositories
 
 import com.rl.solar.R
 import com.rl.solar.core.Planet
+import com.rl.solar.database.SolarDao
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 
 interface Repository<T> {
-    fun get(id: Int): Flow<T?>
+    fun get(id: Long): Flow<T?>
     fun getAll(): Flow<List<T>>
 }
 
-class PlanetRepository @Inject constructor() : Repository<Planet> {
-    override fun get(id: Int): Flow<Planet?> = flowOf(
-        planets.firstOrNull { planet -> planet.id == id }
-    )
-
-    override fun getAll(): Flow<List<Planet>> = flowOf(planets.toList())
-
-    // todo: replace with service calls & retrofit
-    companion object {
-        val planets: HashSet<Planet> = hashSetOf(
-            Planet(id = 1, name = "Mercury", image = R.drawable.ic_planet_mercury),
-            Planet(id = 2, name = "Venus", image = R.drawable.ic_planet_venus),
-            Planet(id = 3, name = "Earth", image = R.drawable.ic_planet_earth),
-            Planet(id = 4, name = "Mars", image = R.drawable.ic_planet_mars),
-            Planet(id = 5, name = "Jupiter", image = R.drawable.ic_planet_jupiter),
-            Planet(id = 6, name = "Saturn", image = R.drawable.ic_planet_saturn),
-            Planet(id = 7, name = "Uranus", image = R.drawable.ic_planet_uranus),
-            Planet(id = 8, name = "Neptune", image = R.drawable.ic_planet_neptune),
-            Planet(id = 9, name = "Pluto", image = R.drawable.ic_planet_pluto)
-        )
+class PlanetRepository @Inject constructor(private val dao: SolarDao) : Repository<Planet> {
+    override fun get(id: Long): Flow<Planet?> = dao.getPlanet(id)
+    override fun getAll(): Flow<List<Planet>> = dao.getPlanets().map { planets ->
+        planets.map {
+            it.image = when(it.name) {
+                "Mercury" -> R.drawable.ic_planet_mercury
+                "Venus" -> R.drawable.ic_planet_venus
+                "Earth" -> R.drawable.ic_planet_earth
+                "Mars" -> R.drawable.ic_planet_mars
+                "Jupiter" -> R.drawable.ic_planet_jupiter
+                "Saturn" -> R.drawable.ic_planet_saturn
+                "Uranus" -> R.drawable.ic_planet_uranus
+                "Neptune" -> R.drawable.ic_planet_neptune
+                "Pluto" -> R.drawable.ic_planet_pluto
+                else -> R.drawable.ic_planet_unknown
+            }
+            it
+        }
     }
 }
