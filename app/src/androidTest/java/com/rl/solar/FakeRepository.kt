@@ -1,20 +1,31 @@
 package com.rl.solar
 
+import android.content.Context
+import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
 import com.rl.solar.repositories.Repository
 import com.rl.solar.core.Planet
+import com.rl.solar.database.SolarDao
+import com.rl.solar.database.SolarDatabase
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
 class FakeRepository @Inject constructor() : Repository<Planet> {
-    private val _planets = listOf(
-        Planet(98, "Fraggle", image = R.drawable.ic_planet_unknown),
-        Planet(99, "Rock", image = R.drawable.ic_planet_unknown)
-    )
+    private var dao: SolarDao
+    private var db: SolarDatabase
 
-    override fun get(id: Int): Flow<Planet?> = flowOf(
-        _planets.firstOrNull { planet -> planet.id == id }
-    )
+    init {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        db = Room.inMemoryDatabaseBuilder(context, SolarDatabase::class.java)
+            .allowMainThreadQueries().build()
 
-    override fun getAll(): Flow<List<Planet>> = flowOf(_planets.toList())
+        dao = db.solarDao()
+        dao.addPlanets(
+            Planet(98, "Fraggle"),
+            Planet(99, "Rock")
+        )
+    }
+
+    override fun get(id: Long): Flow<Planet?> = dao.getPlanet(id)
+    override fun getAll(): Flow<List<Planet>> = dao.getPlanets()
 }
