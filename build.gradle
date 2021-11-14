@@ -3,6 +3,7 @@ buildscript {
     ext.kotlinVersion = '1.5.31'
     ext.ktlintGradleVersion = '10.2.0'
     ext.navigationVersion = '2.3.5'
+    ext.roomVersion = '2.3.0'
     repositories {
         google()
         mavenCentral()

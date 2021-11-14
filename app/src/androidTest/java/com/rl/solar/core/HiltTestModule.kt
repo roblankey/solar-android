@@ -11,7 +11,7 @@ import javax.inject.Singleton
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
-    replaces = [SolarModule::class]
+    replaces = [SolarAbstractModule::class]
 )
 abstract class HiltTestModule {
     @Binds

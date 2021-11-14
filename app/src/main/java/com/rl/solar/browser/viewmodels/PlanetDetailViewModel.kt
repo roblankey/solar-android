@@ -14,7 +14,7 @@ class PlanetDetailViewModel @Inject constructor(
     repository: Repository<Planet>,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    val planetId: Int = savedStateHandle.get<Int>(PLANET_ID_SAVED_STATE_KEY)!!
+    val planetId: Long = savedStateHandle.get<Long>(PLANET_ID_SAVED_STATE_KEY)!!
     var planet: LiveData<Planet?> = repository.get(planetId).asLiveData()
 
     companion object {
