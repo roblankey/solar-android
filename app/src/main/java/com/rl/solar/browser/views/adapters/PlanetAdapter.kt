@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.rl.solar.R
 import com.rl.solar.browser.views.fragments.PlanetListFragmentDirections
 import com.rl.solar.databinding.ListItemPlanetBinding
 import com.rl.solar.core.Planet
@@ -35,9 +36,7 @@ class PlanetAdapter @Inject constructor() : ListAdapter<Planet, RecyclerView.Vie
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener {
-                binding.planet.let { planet ->
-                    navigateToPlanet(planet, it)
-                }
+                navigateToPlanet(binding.planet, it)
             }
         }
 
@@ -48,7 +47,8 @@ class PlanetAdapter @Inject constructor() : ListAdapter<Planet, RecyclerView.Vie
             }
         }
 
-        private fun navigateToPlanet(planet: Planet, view: View) {
+        private fun navigateToPlanet(planet: Planet?, view: View) {
+            if (planet == null) return
             val destination = PlanetListFragmentDirections
                 .actionPlanetListFragmentToPlanetDetailFragment(planet.id)
             view.findNavController().navigate(destination)

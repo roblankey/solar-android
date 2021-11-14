@@ -18,7 +18,7 @@
         android:name="com.rl.solar.browser.views.fragments.PlanetDetailFragment" >
         <argument
             android:name="planetId"
-            app:argType="integer" />
+            app:argType="long" />
     </fragment>
 
     <!--    <fragment-->

@@ -16,12 +16,6 @@ class PlanetDetailFragment : Fragment() {
     private lateinit var binding: FragmentPlanetDetailBinding
     private val viewModel by viewModels<PlanetDetailViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val args: PlanetDetailFragmentArgs by navArgs()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +23,14 @@ class PlanetDetailFragment : Fragment() {
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentPlanetDetailBinding.inflate(layoutInflater, container, false)
+
+        val args: PlanetDetailFragmentArgs by navArgs()
+        viewModel.loadPlanet(args.planetId)
+
+        viewModel.planet.observe(viewLifecycleOwner) {
+            binding.planet = it
+        }
+
         return binding.root
     }
 }
