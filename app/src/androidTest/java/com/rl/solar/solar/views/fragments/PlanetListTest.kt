@@ -7,7 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.filters.SmallTest
 import com.rl.solar.browser.views.fragments.PlanetListFragment
-import com.rl.solar.core.SolarModule
+import com.rl.solar.core.SolarAbstractModule
 import com.rl.solar.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -18,7 +18,7 @@ import org.junit.Test
 
 @HiltAndroidTest
 @SmallTest
-@UninstallModules(SolarModule::class)
+@UninstallModules(SolarAbstractModule::class)
 class PlanetListTest {
     @get:Rule
     val rule = HiltAndroidRule(this)

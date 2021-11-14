@@ -8,7 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.SmallTest
 import com.rl.solar.browser.views.SolarActivity
-import com.rl.solar.core.SolarModule
+import com.rl.solar.core.SolarAbstractModule
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
@@ -19,7 +19,7 @@ import org.junit.rules.RuleChain
 
 @HiltAndroidTest
 @SmallTest
-@UninstallModules(SolarModule::class)
+@UninstallModules(SolarAbstractModule::class)
 class SolarActivityTest {
     private val hiltRule = HiltAndroidRule(this)
     private val scenarioRule = ActivityScenarioRule(SolarActivity::class.java)
