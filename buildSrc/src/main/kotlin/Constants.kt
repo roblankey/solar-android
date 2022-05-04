@@ -2,6 +2,7 @@ object Constants {
   const val hiltVersion = "2.40.1"
   const val kotlinVersion = "1.5.30"
   const val ktlintGradleVersion = "10.2.0"
+  const val ktlintVersion = "0.45.2"
   const val navigationVersion = "2.4.2"
   const val roomVersion = "2.4.2"
 

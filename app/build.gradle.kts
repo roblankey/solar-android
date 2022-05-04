@@ -1,3 +1,5 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -21,7 +23,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments += mapOf(
-                    "room.schemaLocation" to "$projectDir/schemas".toString(),
+                    "room.schemaLocation" to "$projectDir/schemas",
                     "room.incremental" to "true",
                     "room.expandProjection" to "true"
                 )
@@ -60,7 +62,13 @@ android {
     }
 }
 
-apply(from = "./ktlint.gradle")
+ktlint {
+    android.set(true)
+    coloredOutput.set(true)
+    outputToConsole.set(true)
+    version.set(Constants.ktlintVersion)
+    reporters { reporter(ReporterType.CHECKSTYLE) }
+}
 
 kapt {
     arguments {
@@ -70,10 +78,6 @@ kapt {
     }
 }
 
-/*
- Dependency versions are defined in the top level build.gradle file. This helps keeping track of
- all versions in a single place. This improves readability and helps managing project complexity.
- */
 dependencies {
     // Architecture Components
     implementation("androidx.appcompat:appcompat:${Constants.appCompatVersion}")
@@ -128,4 +132,9 @@ dependencies {
 
     // AndroidX Test - Instrumented testing
     androidTestImplementation("androidx.test.ext:junit:${Constants.junitExtVersion}")
+}
+
+repositories {
+    google()
+    mavenCentral()
 }
