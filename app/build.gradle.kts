@@ -37,8 +37,7 @@ android {
         }
         release {
             isMinifyEnabled = false
-            proguardFile(getDefaultProguardFile("proguard-android-optimize.txt"))
-            proguardFile(file("proguard-rules.pro"))
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 
@@ -57,16 +56,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+    kotlinOptions.jvmTarget = "11"
 }
 
 ktlint {
     android.set(true)
-    coloredOutput.set(true)
-    outputToConsole.set(true)
-    version.set(Constants.ktlintVersion)
+    outputColorName.set("RED")
     reporters { reporter(ReporterType.CHECKSTYLE) }
 }
 
