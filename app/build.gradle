@@ -3,16 +3,16 @@ plugins {
     id "kotlin-android"
     id "kotlin-kapt"
     id "dagger.hilt.android.plugin"
-    id "org.jlleitschuh.gradle.ktlint" version "$ktlintGradleVersion"
+    id "org.jlleitschuh.gradle.ktlint" version "10.2.0"
 }
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
+    compileSdkVersion(Constants.compileSdkVersion)
 
     defaultConfig {
-        applicationId "com.rl.solar"
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
+        applicationId("com.rl.solar")
+        minSdkVersion(Constants.minSdkVersion)
+        targetSdkVersion(Constants.targetSdkVersion)
         versionCode 1
         versionName "1.0"
 
@@ -81,60 +81,58 @@ kapt {
  */
 dependencies {
     // App dependencies
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation "androidx.core:core-ktx:$androidCoreKtxVersion"
-    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupportVersion"
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
-    kapt "com.github.bumptech.glide:compiler:$glideVersion"
-    implementation "com.google.android.material:material:$materialVersion"
-    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "androidx.appcompat:appcompat:${Constants.appCompatVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${Constants.constraintLayoutVersion}"
+    implementation "androidx.core:core-ktx:${Constants.androidCoreKtxVersion}"
+    implementation "androidx.legacy:legacy-support-v4:${Constants.androidXLegacySupportVersion}"
+    implementation "com.github.bumptech.glide:glide:${Constants.glideVersion}"
+    kapt "com.github.bumptech.glide:compiler:${Constants.glideVersion}"
+    implementation "com.google.android.material:material:${Constants.materialVersion}"
+    implementation "com.jakewharton.timber:timber:${Constants.timberVersion}"
 
     // Architecture Components
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${Constants.archLifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${Constants.archLifecycleVersion}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${Constants.navigationVersion}"
+    implementation "androidx.navigation:navigation-ui-ktx:${Constants.navigationVersion}"
 
     // Hilt
-    implementation "com.google.dagger:hilt-android:$hiltVersion"
-    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
+    implementation "com.google.dagger:hilt-android:${Constants.hiltVersion}"
+    kapt "com.google.dagger:hilt-compiler:${Constants.hiltVersion}"
 
     // Hilt testing
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:${Constants.hiltVersion}"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:${Constants.hiltVersion}"
 
     // Room
-    implementation "androidx.room:room-runtime:$roomVersion"
-    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:${Constants.roomVersion}"
+    kapt "androidx.room:room-compiler:${Constants.roomVersion}"
 
     // Room testing
-    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.room:room-ktx:${Constants.roomVersion}"
 
     // Dependencies for local unit tests
-    testImplementation "junit:junit:$junitVersion"
-    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
-    testImplementation "androidx.navigation:navigation-testing:$navigationVersion"
-    testImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    testImplementation "com.google.truth:truth:$truthVersion"
-    testImplementation "app.cash.turbine:turbine:$turbineVersion"
-    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation "junit:junit:${Constants.junitVersion}"
+    testImplementation "androidx.arch.core:core-testing:${Constants.archTestingVersion}"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Constants.coroutinesVersion}"
+    testImplementation "androidx.navigation:navigation-testing:${Constants.navigationVersion}"
+    testImplementation "androidx.test.espresso:espresso-core:${Constants.espressoVersion}"
+    testImplementation "com.google.truth:truth:${Constants.truthVersion}"
+    testImplementation "app.cash.turbine:turbine:${Constants.turbineVersion}"
+    testImplementation "io.mockk:mockk:${Constants.mockkVersion}"
 
     // Dependencies for Android unit tests
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "androidx.navigation:navigation-testing:$navigationVersion"
-    androidTestImplementation "com.google.truth:truth:$truthVersion"
-    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${Constants.espressoVersion}"
+    androidTestImplementation "androidx.navigation:navigation-testing:${Constants.navigationVersion}"
+    androidTestImplementation "com.google.truth:truth:${Constants.truthVersion}"
+    androidTestImplementation "io.mockk:mockk-android:${Constants.mockkVersion}"
 
     // AndroidX Test - JVM testing
-    debugImplementation("androidx.fragment:fragment-testing:$fragmentTestingVersion") {
-        exclude group: 'androidx.test', module: 'core'
-    }
+    debugImplementation("androidx.fragment:fragment-testing:${Constants.fragmentTestingVersion}")
 
     // AndroidX Test - Instrumented testing
-    androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
+    androidTestImplementation "androidx.test.ext:junit:${Constants.junitExtVersion}"
 
     // Kotlin
-    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    implementation "androidx.fragment:fragment-ktx:${Constants.fragmentKtxVersion}"
 }

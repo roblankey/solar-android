@@ -6,13 +6,5 @@ dependencyResolutionManagement {
     }
 }
 
-pluginManagement {
-    repositories {
-        google()
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
-
 rootProject.name = "Solar Android"
 include(":app")
