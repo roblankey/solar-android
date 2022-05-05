@@ -1,0 +1,13 @@
+formatting:
+  android: true
+  Indentation:
+    indentSize: 2
+  NoWildcardImports:
+      active: true
+      packagesToUseImportOnDemandProperty: 'java.util.*,kotlinx.android.synthetic.**,androidx.room.*,io.ktor.**'
+
+style:
+  WildcardImport:
+    active: true
+    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
+    excludeImports: ['java.util.*', 'kotlinx.android.synthetic.**', 'androidx.room.*', 'io.ktor.**']

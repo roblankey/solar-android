@@ -20,29 +20,29 @@ import org.junit.Test
 @SmallTest
 @UninstallModules(SolarAbstractModule::class)
 class PlanetListTest {
-    @get:Rule
-    val rule = HiltAndroidRule(this)
+  @get:Rule
+  val rule = HiltAndroidRule(this)
 
-    @Before
-    fun setup() {
-        rule.inject()
-    }
+  @Before
+  fun setup() {
+    rule.inject()
+  }
 
-    @Test
-    fun i_can_see_fraggle() {
-        launchFragmentInHiltContainer<PlanetListFragment> { }
-        onView(withText("Fraggle")).check(matches(isDisplayed()))
-    }
+  @Test
+  fun i_can_see_fraggle() {
+    launchFragmentInHiltContainer<PlanetListFragment> { }
+    onView(withText("Fraggle")).check(matches(isDisplayed()))
+  }
 
-    @Test
-    fun i_can_see_rock() {
-        launchFragmentInHiltContainer<PlanetListFragment> { }
-        onView(withText("Rock")).check(matches(isDisplayed()))
-    }
+  @Test
+  fun i_can_see_rock() {
+    launchFragmentInHiltContainer<PlanetListFragment> { }
+    onView(withText("Rock")).check(matches(isDisplayed()))
+  }
 
-    @Test
-    fun i_cannot_see_earth() {
-        launchFragmentInHiltContainer<PlanetListFragment> { }
-        onView(withText("Earth")).check(doesNotExist())
-    }
+  @Test
+  fun i_cannot_see_earth() {
+    launchFragmentInHiltContainer<PlanetListFragment> { }
+    onView(withText("Earth")).check(doesNotExist())
+  }
 }

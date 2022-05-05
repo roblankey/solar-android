@@ -20,20 +20,20 @@ class SolarApplication : Application()
 
 @InstallIn(SingletonComponent::class)
 @Module
-abstract class SolarAbstractModule {
-    @Binds @Singleton
-    abstract fun providesPlanetRepository(impl: PlanetRepository): Repository<Planet>
+interface SolarAbstractModule {
+  @Binds @Singleton
+  fun providesPlanetRepository(impl: PlanetRepository): Repository<Planet>
 }
 
 @InstallIn(SingletonComponent::class)
 @Module
 class SolarConcreteModule {
-    @Provides
-    fun providesSolarDao(database: SolarDatabase) = database.solarDao()
+  @Provides
+  fun providesSolarDao(database: SolarDatabase) = database.solarDao()
 
-    @Provides
-    fun providesSolarDatabase(@ApplicationContext context: Context): SolarDatabase =
-        Room.databaseBuilder(context, SolarDatabase::class.java, "Solar")
-            .createFromAsset("databases/solar.db")
-            .build()
+  @Provides
+  fun providesSolarDatabase(@ApplicationContext context: Context): SolarDatabase =
+    Room.databaseBuilder(context, SolarDatabase::class.java, "Solar")
+      .createFromAsset("databases/solar.db")
+      .build()
 }
