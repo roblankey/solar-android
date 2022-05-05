@@ -10,11 +10,11 @@ import javax.inject.Singleton
 
 @Module
 @TestInstallIn(
-    components = [SingletonComponent::class],
-    replaces = [SolarAbstractModule::class]
+  components = [SingletonComponent::class],
+  replaces = [SolarAbstractModule::class]
 )
 abstract class HiltTestModule {
-    @Binds
-    @Singleton
-    abstract fun bindFakeRepository(impl: FakeRepository): Repository<Planet>
+  @Binds
+  @Singleton
+  abstract fun bindFakeRepository(impl: FakeRepository): Repository<Planet>
 }
