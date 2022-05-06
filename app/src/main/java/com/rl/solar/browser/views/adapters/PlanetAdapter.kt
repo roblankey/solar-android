@@ -26,18 +26,10 @@ class PlanetAdapter(
     private val binding: ListItemPlanetBinding
   ) : RecyclerView.ViewHolder(binding.root) {
     init {
-      binding.planetListCard.setOnClickListener {
+      binding.setClickListener {
         binding.planet?.let { planet ->
           onItemClicked(planet)
         }
-      }
-
-      binding.planetItemImage.setOnClickListener {
-        binding.planetListCard.performClick()
-      }
-
-      binding.plantItemTitle.setOnClickListener {
-        binding.planetListCard.performClick()
       }
     }
 
