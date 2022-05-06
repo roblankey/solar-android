@@ -7,11 +7,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SolarActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySolarBinding
+  private lateinit var binding: ActivitySolarBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySolarBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    binding = ActivitySolarBinding.inflate(layoutInflater)
+    setContentView(binding.root)
+  }
 }

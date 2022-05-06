@@ -14,51 +14,51 @@ import org.junit.Rule
 import org.junit.Test
 
 class PlanetRepositoryTest {
-    @get:Rule
-    var rule = InstantTaskExecutorRule()
+  @get:Rule
+  var rule = InstantTaskExecutorRule()
 
-    private lateinit var repository: PlanetRepository
-    private val mockedPlanets = listOf(
-        Planet(1, "Fraggle"),
-        Planet(2, "Rock")
-    )
+  private lateinit var repository: PlanetRepository
+  private val mockedPlanets = listOf(
+    Planet(1, "Fraggle"),
+    Planet(2, "Rock")
+  )
 
-    @Before
-    fun setup() {
-        // g
-        val dao = mockk<SolarDao>()
-        every { dao.getPlanets() } returns flowOf(mockedPlanets)
-        every { dao.getPlanet(any()) } returns flowOf(mockedPlanets.first())
-        repository = PlanetRepository(dao)
+  @Before
+  fun setup() {
+    // g
+    val dao = mockk<SolarDao>()
+    every { dao.getPlanets() } returns flowOf(mockedPlanets)
+    every { dao.getPlanet(any()) } returns flowOf(mockedPlanets.first())
+    repository = PlanetRepository(dao)
+  }
+
+  @Test
+  fun `repository should return milky way planets`() {
+    runBlocking {
+      // w
+      repository.getAll().test {
+        // t
+        val result = awaitItem()
+        assertThat(result).isNotNull()
+        assertThat(result).isNotEmpty()
+        assertThat(result).isEqualTo(mockedPlanets)
+        awaitComplete()
+      }
     }
+  }
 
-    @Test
-    fun `repository should return milky way planets`() {
-        runBlocking {
-            // w
-            repository.getAll().test {
-                // t
-                val result = awaitItem()
-                assertThat(result).isNotNull()
-                assertThat(result).isNotEmpty()
-                assertThat(result).isEqualTo(mockedPlanets)
-                awaitComplete()
-            }
-        }
+  @Test
+  fun `repository should be able to retrieve pluto`() {
+    runBlocking {
+      // w
+      repository.get(0).test {
+        // t
+        val result = awaitItem()
+        assertThat(result).isNotNull()
+        assertThat(result?.id).isEqualTo(mockedPlanets.first().id)
+        assertThat(result?.name).isEqualTo(mockedPlanets.first().name)
+        awaitComplete()
+      }
     }
-
-    @Test
-    fun `repository should be able to retrieve pluto`() {
-        runBlocking {
-            // w
-            repository.get(0).test {
-                // t
-                val result = awaitItem()
-                assertThat(result).isNotNull()
-                assertThat(result?.id).isEqualTo(mockedPlanets.first().id)
-                assertThat(result?.name).isEqualTo(mockedPlanets.first().name)
-                awaitComplete()
-            }
-        }
-    }
+  }
 }
