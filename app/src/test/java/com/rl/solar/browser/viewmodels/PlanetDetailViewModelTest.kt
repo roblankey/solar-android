@@ -1,10 +1,8 @@
-package com.rl.solar.viewmodels
+package com.rl.solar.browser.viewmodels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.SavedStateHandle
 import com.google.common.truth.Truth.assertThat
 import com.rl.solar.MainCoroutineRule
-import com.rl.solar.browser.viewmodels.PlanetDetailViewModel
 import com.rl.solar.core.Planet
 import com.rl.solar.getOrAwaitValue
 import com.rl.solar.repositories.PlanetRepository
@@ -38,12 +36,10 @@ class PlanetDetailViewModelTest {
     val planet = Planet(0, "Burgundy")
     every { repository.get(0) } returns flowOf(planet)
 
-    val state = mockk<SavedStateHandle>()
-    every { state.get<Int>(any()) } returns 0
-
-    val viewModel = PlanetDetailViewModel(repository, state)
+    val viewModel = PlanetDetailViewModel(repository)
 
     // w
+    viewModel.loadPlanet(0L)
     val result = viewModel.planet.getOrAwaitValue()
 
     // t
@@ -56,10 +52,7 @@ class PlanetDetailViewModelTest {
     // g
     every { repository.get(any()) } returns flowOf(null)
 
-    val state = mockk<SavedStateHandle>()
-    every { state.get<Int>(any()) } returns 0
-
-    val viewModel = PlanetDetailViewModel(repository, state)
+    val viewModel = PlanetDetailViewModel(repository)
 
     // w
     val result = viewModel.planet.getOrAwaitValue()
