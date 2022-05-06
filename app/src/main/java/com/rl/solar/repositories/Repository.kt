@@ -13,22 +13,30 @@ interface Repository<T> {
 }
 
 class PlanetRepository @Inject constructor(private val dao: SolarDao) : Repository<Planet> {
-  override fun get(planetId: Long): Flow<Planet?> = dao.getPlanet(planetId)
+  override fun get(id: Long): Flow<Planet?> = dao.getPlanet(id).map {
+    it?.apply {
+      image = getImage(name)
+    }
+  }
+
   override fun getAll(): Flow<List<Planet>> = dao.getPlanets().map { planets ->
     planets.map {
-      it.image = when (it.name) {
-        "Mercury" -> R.drawable.ic_planet_mercury
-        "Venus" -> R.drawable.ic_planet_venus
-        "Earth" -> R.drawable.ic_planet_earth
-        "Mars" -> R.drawable.ic_planet_mars
-        "Jupiter" -> R.drawable.ic_planet_jupiter
-        "Saturn" -> R.drawable.ic_planet_saturn
-        "Uranus" -> R.drawable.ic_planet_uranus
-        "Neptune" -> R.drawable.ic_planet_neptune
-        "Pluto" -> R.drawable.ic_planet_pluto
-        else -> R.drawable.ic_planet_unknown
+      it.apply {
+        image = getImage(name)
       }
-      it
     }
+  }
+
+  private fun getImage(name: String): Int = when (name) {
+    "Mercury" -> R.drawable.ic_planet_mercury
+    "Venus" -> R.drawable.ic_planet_venus
+    "Earth" -> R.drawable.ic_planet_earth
+    "Mars" -> R.drawable.ic_planet_mars
+    "Jupiter" -> R.drawable.ic_planet_jupiter
+    "Saturn" -> R.drawable.ic_planet_saturn
+    "Uranus" -> R.drawable.ic_planet_uranus
+    "Neptune" -> R.drawable.ic_planet_neptune
+    "Pluto" -> R.drawable.ic_planet_pluto
+    else -> R.drawable.ic_planet_unknown
   }
 }

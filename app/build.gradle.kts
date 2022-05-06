@@ -1,9 +1,9 @@
 import io.gitlab.arturbosch.detekt.Detekt
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   id("com.android.application")
   id("kotlin-android")
+  id("androidx.navigation.safeargs.kotlin")
   id("kotlin-kapt")
   id("dagger.hilt.android.plugin")
   id("io.gitlab.arturbosch.detekt") version(Constants.detektVersion)

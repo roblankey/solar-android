@@ -9,21 +9,16 @@
         android:id="@+id/planet_list_fragment"
         android:name="com.rl.solar.browser.views.fragments.PlanetListFragment"
         tools:layout="@layout/fragment_planet_list">
+
         <action
             android:id="@+id/action_planet_list_fragment_to_planet_detail_fragment"
             app:destination="@id/planet_detail_fragment" />
     </fragment>
+
     <fragment
         android:id="@+id/planet_detail_fragment"
         android:name="com.rl.solar.browser.views.fragments.PlanetDetailFragment" >
-        <argument
-            android:name="planetId"
-            app:argType="long" />
-    </fragment>
 
-    <!--    <fragment-->
-<!--        android:id="@+id/nav_planet_detail"-->
-<!--        android:name="com.rl.solar.views.fragments.PlanetDetailFragment"-->
-<!--        tools:layout="@layout/fragment_planet_detail">-->
-<!--    </fragment>-->
+        <argument android:name="planetId" app:argType="long" />
+    </fragment>
 </navigation>

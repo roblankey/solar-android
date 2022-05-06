@@ -36,7 +36,7 @@
                 tools:src="@drawable/ic_planet_unknown" />
 
             <TextView
-                android:id="@+id/plant_item_title"
+                android:id="@+id/planet_item_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
@@ -50,7 +50,5 @@
                 tools:text="Not a moon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
 </layout>

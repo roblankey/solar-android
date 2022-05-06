@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.rl.solar.browser.viewmodels.PlanetListViewModel
 import com.rl.solar.browser.views.adapters.PlanetAdapter
 import com.rl.solar.core.Planet
@@ -39,6 +39,7 @@ class PlanetListFragment : Fragment() {
   }
 
   private fun onPlanetClicked(planet: Planet) {
-    Toast.makeText(requireContext(), planet.name, Toast.LENGTH_SHORT).show()
+    val destination = PlanetListFragmentDirections.actionPlanetListFragmentToPlanetDetailFragment(planet.id)
+    view?.findNavController()?.navigate(destination)
   }
 }

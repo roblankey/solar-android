@@ -13,24 +13,23 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PlanetDetailFragment : Fragment() {
-    private lateinit var binding: FragmentPlanetDetailBinding
-    private val viewModel by viewModels<PlanetDetailViewModel>()
+  private lateinit var binding: FragmentPlanetDetailBinding
+  private val viewModel by viewModels<PlanetDetailViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        super.onCreateView(inflater, container, savedInstanceState)
-        binding = FragmentPlanetDetailBinding.inflate(layoutInflater, container, false)
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View {
+    super.onCreateView(inflater, container, savedInstanceState)
+    binding = FragmentPlanetDetailBinding.inflate(layoutInflater, container, false)
 
-        val args: PlanetDetailFragmentArgs by navArgs()
-        viewModel.loadPlanet(args.planetId)
-
-        viewModel.planet.observe(viewLifecycleOwner) {
-            binding.planet = it
-        }
-
-        return binding.root
+    val args: PlanetDetailFragmentArgs by navArgs()
+    viewModel.loadPlanet(args.planetId)
+    viewModel.planet.observe(viewLifecycleOwner) {
+      binding.planet = it
     }
+
+    return binding.root
+  }
 }
