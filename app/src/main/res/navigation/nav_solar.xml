@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/planet_list_fragment"
-        android:name="com.rl.solar.browser.views.fragments.PlanetListFragment"
+        android:name="com.rl.solar.fragments.PlanetListFragment"
         tools:layout="@layout/fragment_planet_list">
 
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/planet_detail_fragment"
-        android:name="com.rl.solar.browser.views.fragments.PlanetDetailFragment" >
+        android:name="com.rl.solar.fragments.PlanetDetailFragment" >
 
         <argument android:name="planetId" app:argType="long" />
     </fragment>

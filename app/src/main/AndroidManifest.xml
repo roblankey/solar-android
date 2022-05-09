@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SolarAndroid">
         <activity
-            android:name=".browser.views.SolarActivity"
+            android:name="com.rl.solar.SolarActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.SolarAndroid">

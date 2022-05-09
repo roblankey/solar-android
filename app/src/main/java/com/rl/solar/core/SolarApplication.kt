@@ -3,9 +3,9 @@ package com.rl.solar.core
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
-import com.rl.solar.database.SolarDatabase
-import com.rl.solar.repositories.PlanetRepository
-import com.rl.solar.repositories.Repository
+import com.rl.solar.data.SolarDatabase
+import com.rl.solar.data.PlanetRepository
+import com.rl.solar.data.Repository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

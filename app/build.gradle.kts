@@ -107,12 +107,13 @@ dependencies {
   // Dependencies for local unit tests
   testImplementation("junit:junit:${Constants.junitVersion}")
   testImplementation("androidx.arch.core:core-testing:${Constants.archTestingVersion}")
-  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Constants.coroutinesVersion}")
   testImplementation("androidx.navigation:navigation-testing:${Constants.navigationVersion}")
   testImplementation("androidx.test.espresso:espresso-core:${Constants.espressoVersion}")
-  testImplementation("com.google.truth:truth:${Constants.truthVersion}")
   testImplementation("app.cash.turbine:turbine:${Constants.turbineVersion}")
+  testImplementation("com.google.truth:truth:${Constants.truthVersion}")
   testImplementation("io.mockk:mockk:${Constants.mockkVersion}")
+  testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Constants.coroutinesVersion}")
+  testImplementation("org.robolectric:robolectric:${Constants.robolectricVersion}")
 
   // Dependencies for Android unit tests
   androidTestImplementation("androidx.test.espresso:espresso-core:${Constants.espressoVersion}")
