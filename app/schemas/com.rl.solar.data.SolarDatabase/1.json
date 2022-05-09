@@ -1,0 +1,136 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "3b47d7b17b9c1e724d97f95e9b509701",
+    "entities": [
+      {
+        "tableName": "planets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `stub` TEXT, `aphelion` REAL, `perihelion` REAL, `orbital_period` REAL, `mean_radius` INTEGER, `mass` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stub",
+            "columnName": "stub",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "aphelion",
+            "columnName": "aphelion",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "perihelion",
+            "columnName": "perihelion",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "orbitalPeriod",
+            "columnName": "orbital_period",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "meanRadius",
+            "columnName": "mean_radius",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mass",
+            "columnName": "mass",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "moons",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `planet_id` INTEGER NOT NULL, `distance_from_planet` INTEGER, FOREIGN KEY(`planet_id`) REFERENCES `planets`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "planetId",
+            "columnName": "planet_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "distanceFromPlanet",
+            "columnName": "distance_from_planet",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_moons_planet_id",
+            "unique": false,
+            "columnNames": [
+              "planet_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_moons_planet_id` ON `${TABLE_NAME}` (`planet_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "planets",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "planet_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3b47d7b17b9c1e724d97f95e9b509701')"
+    ]
+  }
+}
