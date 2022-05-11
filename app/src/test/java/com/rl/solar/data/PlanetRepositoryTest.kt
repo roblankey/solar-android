@@ -4,8 +4,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
 import com.rl.solar.core.Planet
-import com.rl.solar.data.PlanetRepository
-import com.rl.solar.data.SolarDao
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf

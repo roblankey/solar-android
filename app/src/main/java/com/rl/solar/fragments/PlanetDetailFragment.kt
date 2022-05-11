@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.rl.solar.viewmodels.PlanetDetailViewModel
 import com.rl.solar.databinding.FragmentPlanetDetailBinding
+import com.rl.solar.viewmodels.PlanetDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

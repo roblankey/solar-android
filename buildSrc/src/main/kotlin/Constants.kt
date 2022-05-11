@@ -29,7 +29,6 @@ object Constants {
   const val junitVersion = "4.13.2"
   const val junitExtVersion = "1.1.3"
   const val mockkVersion = "1.12.0"
-  const val robolectricVersion = "4.8"
   const val truthVersion = "1.1.3"
   const val turbineVersion = "0.7.0"
 }
