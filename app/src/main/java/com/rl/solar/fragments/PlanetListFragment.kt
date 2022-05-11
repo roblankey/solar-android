@@ -1,16 +1,16 @@
-package com.rl.solar.browser.views.fragments
+package com.rl.solar.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.rl.solar.browser.viewmodels.PlanetListViewModel
-import com.rl.solar.browser.views.adapters.PlanetAdapter
+import androidx.navigation.findNavController
+import com.rl.solar.adapters.PlanetAdapter
 import com.rl.solar.core.Planet
 import com.rl.solar.databinding.FragmentPlanetListBinding
+import com.rl.solar.viewmodels.PlanetListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,6 +39,7 @@ class PlanetListFragment : Fragment() {
   }
 
   private fun onPlanetClicked(planet: Planet) {
-    Toast.makeText(requireContext(), planet.name, Toast.LENGTH_SHORT).show()
+    val destination = PlanetListFragmentDirections.actionPlanetListFragmentToPlanetDetailFragment(planet.id)
+    view?.findNavController()?.navigate(destination)
   }
 }

@@ -1,47 +1,47 @@
-package com.rl.solar.views
+package com.rl.solar.fragments
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.SmallTest
-import com.rl.solar.browser.views.SolarActivity
 import com.rl.solar.core.SolarAbstractModule
+import com.rl.solar.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.RuleChain
 
 @HiltAndroidTest
 @SmallTest
 @UninstallModules(SolarAbstractModule::class)
-class SolarActivityTest {
-  private val hiltRule = HiltAndroidRule(this)
-  private val scenarioRule = ActivityScenarioRule(SolarActivity::class.java)
-
+class PlanetListFragmentTest {
   @get:Rule
-  val rule: RuleChain = RuleChain
-    .outerRule(hiltRule)
-    .around(scenarioRule)
+  val rule = HiltAndroidRule(this)
 
   @Before
   fun setup() {
-    hiltRule.inject()
+    rule.inject()
   }
 
   @Test
-  fun the_application_launches_and_i_can_see_fraggle_rock() {
+  fun i_can_see_fraggle() {
+    launchFragmentInHiltContainer<PlanetListFragment> { }
     onView(withText("Fraggle")).check(matches(isDisplayed()))
+  }
+
+  @Test
+  fun i_can_see_rock() {
+    launchFragmentInHiltContainer<PlanetListFragment> { }
     onView(withText("Rock")).check(matches(isDisplayed()))
   }
 
   @Test
-  fun the_application_launches_and_i_cannot_see_boring_stuff() {
+  fun i_cannot_see_earth() {
+    launchFragmentInHiltContainer<PlanetListFragment> { }
     onView(withText("Earth")).check(doesNotExist())
   }
 }

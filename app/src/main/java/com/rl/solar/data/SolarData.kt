@@ -1,4 +1,4 @@
-package com.rl.solar.database
+package com.rl.solar.data
 
 import androidx.room.*
 import com.rl.solar.core.Moon

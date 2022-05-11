@@ -1,10 +1,9 @@
-package com.rl.solar.repositories
+package com.rl.solar.data
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
 import com.rl.solar.core.Planet
-import com.rl.solar.database.SolarDao
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf

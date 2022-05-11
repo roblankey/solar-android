@@ -1,4 +1,4 @@
-package com.rl.solar.browser.views.adapters
+package com.rl.solar.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

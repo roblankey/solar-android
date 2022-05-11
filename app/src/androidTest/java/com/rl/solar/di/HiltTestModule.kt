@@ -1,7 +1,9 @@
-package com.rl.solar.core
+package com.rl.solar.di
 
-import com.rl.solar.FakeRepository
-import com.rl.solar.repositories.Repository
+import com.rl.solar.data.FakeRepository
+import com.rl.solar.core.Planet
+import com.rl.solar.core.SolarAbstractModule
+import com.rl.solar.data.Repository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.components.SingletonComponent

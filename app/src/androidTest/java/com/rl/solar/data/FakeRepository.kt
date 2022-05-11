@@ -1,12 +1,9 @@
-package com.rl.solar
+package com.rl.solar.data
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.rl.solar.core.Planet
-import com.rl.solar.database.SolarDao
-import com.rl.solar.database.SolarDatabase
-import com.rl.solar.repositories.Repository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

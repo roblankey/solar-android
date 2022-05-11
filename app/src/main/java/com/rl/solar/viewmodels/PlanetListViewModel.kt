@@ -1,8 +1,8 @@
-package com.rl.solar.browser.viewmodels
+package com.rl.solar.viewmodels
 
 import androidx.lifecycle.*
 import com.rl.solar.core.Planet
-import com.rl.solar.repositories.Repository
+import com.rl.solar.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
